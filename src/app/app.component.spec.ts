@@ -1,11 +1,23 @@
+import { HttpModule } from '@angular/http';
 import { TestBed, async } from '@angular/core/testing';
 import { AppComponent } from './app.component';
+import { ListUsersComponent } from './list-users/list-users.component';
+import { ListUsersService } from './list-users/list-users.service';
+import { ListUsersProxyService } from './list-users/list-users-proxy.service';
+
 describe('AppComponent', () => {
   beforeEach(async(() => {
     TestBed.configureTestingModule({
       declarations: [
-        AppComponent
+        AppComponent, ListUsersComponent
       ],
+	  imports: [
+		HttpModule  
+	  ],
+	  providers: [
+		ListUsersService,
+		ListUsersProxyService
+	  ]
     }).compileComponents();
   }));
   it('should create the app', async(() => {
